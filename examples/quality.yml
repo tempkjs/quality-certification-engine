@@ -1,0 +1,25 @@
+# SCE — example quality contract (v1)
+#
+# This is what a build must satisfy before SCE issues a PASS. It is included
+# here as a reference for the shape the schema validates.
+#
+# NOTE: Reading this file (file + YAML parsing) is a LATER deliverable. Right
+# now the schema validates already-parsed objects; this file is illustrative.
+
+version: 1
+
+project:
+  type: node
+
+gates:
+  # Every test must pass. 100 = zero tolerance for failing tests.
+  tests:
+    minPassRate: 100
+
+  # Coverage thresholds. Define any subset; each is a minimum percentage.
+  # A typo'd key (e.g. `statement`) or an empty coverage block is rejected.
+  coverage:
+    statements: { min: 80 }
+    branches: { min: 70 }
+    functions: { min: 80 }
+    lines: { min: 80 }
