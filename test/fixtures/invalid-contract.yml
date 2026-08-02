@@ -1,0 +1,6 @@
+version: 2
+project:
+  type: node
+gates:
+  tests:
+    minPassRate: 100

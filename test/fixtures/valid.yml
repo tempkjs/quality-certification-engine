@@ -1,0 +1,8 @@
+version: 1
+project:
+  type: node
+gates:
+  tests:
+    minPassRate: 100
+  coverage:
+    lines: { min: 80 }

@@ -1,0 +1,25 @@
+# SCE's own quality contract.
+#
+# SCE dogfoods itself: `pnpm certify .` loads and validates this file. Once
+# test execution lands (Deliverable 5+), this same contract is what SCE will
+# hold its own build to.
+#
+# This is the canonical example of a v1 contract. There is deliberately no
+# implicit default: SCE will not certify a project that has no contract.
+
+version: 1
+
+project:
+  type: node
+
+gates:
+  # Every test must pass. 100 = zero tolerance for failing tests.
+  tests:
+    minPassRate: 100
+
+  # Coverage thresholds. Define any subset; each is a minimum percentage.
+  coverage:
+    statements: { min: 80 }
+    branches: { min: 70 }
+    functions: { min: 80 }
+    lines: { min: 80 }
